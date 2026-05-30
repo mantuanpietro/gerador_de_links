@@ -1,0 +1,118 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "ROTA 27 - API de Estudos Inteligentes",
+    "description": "Documentação interativa das rotas de Inteligência Artificial para o ecossistema ROTA 27.",
+    "version": "1.0.0"
+  },
+  "host": "localhost:5000",
+  "basePath": "/",
+  "schemes": ["http", "https"],
+  "paths": {
+    "/gerarestudo": {
+      "post": {
+        "summary": "Gera um plano de estudos completo",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "tema": { "type": "string", "example": "Relevo de Portugal" }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": { "description": "Sucesso ao gerar o conteúdo de estudo." }
+        }
+      }
+    },
+    "/gerarflashcards": {
+      "post": {
+        "summary": "Gera 10 flashcards no formato Frente/Verso",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "tema": { "type": "string", "example": "Globalização" }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": { "description": "Sucesso ao gerar os flashcards." }
+        }
+      }
+    },
+    "/gerarquiz": {
+      "post": {
+        "summary": "Gera um quiz com 5 perguntas de múltipla escolha",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "tema": { "type": "string", "example": "Climas do Mundo" }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": { "description": "Sucesso ao gerar o quiz." }
+        }
+      }
+    },
+    "/gerarmapas": {
+      "post": {
+        "summary": "Sugere termos de busca para mapas e infográficos",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "tema": { "type": "string", "example": "Hidrografia" }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": { "description": "Sucesso ao gerar sugestões de mídia." }
+        }
+      }
+    },
+    "/gerarvideos": {
+      "post": {
+        "summary": "Sugere termos de busca de vídeos educativos no YouTube",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "tema": { "type": "string", "example": "Placas Tectónicas" }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": { "description": "Sucesso ao gerar sugestões de vídeos." }
+        }
+      }
+    }
+  }
+}
