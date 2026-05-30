@@ -47,7 +47,7 @@ O que é urbanização?
 Resposta:
 Processo de crescimento das cidades devido ao aumento da população urbana.
 
-Crie pelo menos 10 flashcards.
+Crie pelo menos 12 flashcards.
 
 # ❓ Quiz de Revisão
 Crie 10 perguntas de múltipla escolha.

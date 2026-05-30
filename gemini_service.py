@@ -12,8 +12,8 @@ def _chamar_gemini_json(prompt):
     if not api_key:
         return {"sucesso": False, "erro": "Chave API do Gemini não configurada."}
     try:
-        # Forçamos o modelo a focar em respostas JSON estruturadas
-        model = genai.GenerativeModel("gemini-2.5-flash")
+        # CORREÇÃO: Definido o modelo do Gemini
+        model = genai.GenerativeModel("gemini-3.1-flash-lite")
         resposta = model.generate_content(prompt)
         
         texto = resposta.text.strip()
@@ -27,6 +27,9 @@ def _chamar_gemini_json(prompt):
             texto = "\n".join(lines).strip()
             
         dados = json.loads(texto)
+        
+        # CORREÇÃO: Retornamos os dados diretamente no nó principal para o Front-end
+        # mapear como 'resposta.dados.explicacao_topicos', 'resposta.dados.flashcards', etc.
         return {"sucesso": True, "dados": dados}
     except Exception as e:
         return {"sucesso": False, "erro": str(e)}
@@ -38,9 +41,9 @@ def gerar_conteudo_estudo(tema):
     O retorno deve ser estritamente em formato JSON, obedecendo a seguinte estrutura:
     {{
         "tema": "{tema}",
-        "introducao": "Texto simples e contextualizado com emojis.",
+        "introducao": "Texto simples",
         "explicacao_topicos": [
-            {{"titulo": "Nome do Tópico", "conteudo": "Explicação em tópicos com exemplos cotidianos."}}
+            {{"titulo": "Nome do Tópico", "conteudo": "Explicação em tópicos com exemplos cotidianos, pulando uma linha e coloque numeração ao pular uma linha, retirando elemetentos como (*)."}}
         ],
         "curiosidades": ["Curiosidade 1", "Curiosidade 2"],
         "resumo": "Breve resumo com os pontos mais importantes para memorização."
@@ -51,11 +54,10 @@ def gerar_conteudo_estudo(tema):
 
 def gerar_flashcards_service(tema):
     prompt = f"""
-    Gere exatamente 10 flashcards de revisão sobre o tema de Geografia: "{tema}".
+    Gere exatamente 12 flashcards de revisão sobre o tema de Geografia: "{tema}".
     Foco em alunos de 11 a 15 anos.
     O retorno deve ser estritamente em formato JSON, obedecendo a seguinte estrutura:
     {{
-        "tema": "{tema}",
         "flashcards": [
             {{"frente": "Pergunta ou conceito chave direto", "verso": "Resposta clara, direta e objetiva"}}
         ]
@@ -69,7 +71,6 @@ def gerar_quiz_service(tema):
     Gere exatamente 5 perguntas de múltipla escolha (Quiz) desafiadoras mas adequadas sobre o tema: "{tema}".
     O retorno deve ser estritamente em formato JSON, obedecendo a seguinte estrutura:
     {{
-        "tema": "{tema}",
         "quiz": [
             {{
                 "pergunta": "Enunciado da pergunta",
@@ -91,10 +92,9 @@ def gerar_quiz_service(tema):
 def gerar_midia_mapas_service(tema):
     prompt = f"""
     Você deve sugerir termos de busca altamente precisos e URLs conceituais para Mapas, Infográficos ou Imagens Reais sobre o tema "{tema}".
-    Como o Gemini não navega em tempo real para validar links mutáveis, monte uma estrutura JSON com termos de busca ideais para o Google Imagens e sugestões estáveis (ex: Wikimedia Commons, IBGE).
+    Monte uma estrutura JSON com termos de busca ideais para o Google Imagens e sugestões estáveis (ex: Wikimedia Commons, IBGE).
     Estrutura do JSON:
     {{
-        "tema": "{tema}",
         "midias": [
             {{
                 "tipo": "Mapa Principal / Infográfico / Imagem Ilustrativa",
@@ -114,8 +114,7 @@ def gerar_videos_youtube_service(tema):
     Gere links de buscas prontos ou canais consolidados (Ex: Nostalgia Ciência, Manual do Mundo, Khan Academy, GeoBrasil).
     Estrutura do JSON:
     {{
-        "tema": "{tema}",
-        "videos_recomendados": [
+        "videos_recommendedados": [
             {{
                 "titulo_sugerido": "Título provável do vídeo educativo",
                 "canal": "Nome do canal recomendado",
