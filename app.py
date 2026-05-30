@@ -152,7 +152,7 @@ def home():
     return {
         "sistema": "ROTA 27 - Estudos Inteligentes",
         "status": "online",
-        "documentacao": "Aceda a /docs para ver a documentação interativa.",
+        "documentacao": "Acesse a /docs para ver a documentação interativa.",
         "endpoints": [
             "/gerarestudo",
             "/gerarflashcards",
