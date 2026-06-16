@@ -42,8 +42,8 @@ def gerar_conteudo_estudo(tema):
     {{
         "tema": "{tema}",
         "introducao": "Texto simples",
-        "explicacao_topicos": [
-            {{"titulo": "Nome do Tópico", "conteudo": "Explicação em tópicos com exemplos cotidianos, pulando uma linha e coloque numeração ao pular uma linha, retirando elemetentos como (*)."}}
+        "explicacao": [
+            {{"titulo": "Nome do Tópico", "conteudo": "Explicação formal e atenta, objetiva de maneira como um professor de geografia explicaria."}}
         ],
         "curiosidades": ["Curiosidade 1", "Curiosidade 2"],
         "resumo": "Breve resumo com os pontos mais importantes para memorização."
