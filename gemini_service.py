@@ -43,7 +43,7 @@ def gerar_conteudo_estudo(tema):
         "tema": "{tema}",
         "introducao": "Texto simples",
         "explicacao_topicos": [
-            {{"titulo": "Nome do Tópico", "conteudo": "Explicação clara, de maneira detalhada sem deixar de apontar os pontos mais importantes. Use exemplos do cotidiano, fatos atuais e comparações simples."}}
+            {{"titulo": "Nome do Tópico", "conteudo": "Explicação clara, de maneira detalhada sem deixar de apontar os pontos mais importantes. Use exemplos do cotidiano, fatos atuais e comparações simples, pulando linha após os tópicos."}}
         ],
         "curiosidades": ["Curiosidade 1", "Curiosidade 2"],
         "resumo": "Breve resumo com os pontos mais importantes para memorização."
