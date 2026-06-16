@@ -42,7 +42,7 @@ def gerar_conteudo_estudo(tema):
     {{
         "tema": "{tema}",
         "introducao": "Texto simples",
-        "explicacao": [
+        "explicacao_topicos": [
             {{"titulo": "Nome do Tópico", "conteudo": "Explicação formal e atenta, objetiva de maneira como um professor de geografia explicaria."}}
         ],
         "curiosidades": ["Curiosidade 1", "Curiosidade 2"],
